@@ -39,12 +39,12 @@
         {
           "caption": "PhaseSTShutoff",
           "name": "PhaseSTShutoff",
-          "width": "100px"
+          "width": "150px"
         },
         {
           "caption": "PhaseSTTurnon",
           "name": "PhaseSTTurnon",
-          "width": "100px"
+          "width": "150px"
         },        
         {
           "caption": "Serial Number",
