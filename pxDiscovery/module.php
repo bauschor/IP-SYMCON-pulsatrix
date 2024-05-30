@@ -35,13 +35,13 @@ class pxDiscovery extends IPSModule
                 [
                     'moduleID'      => '{EE92367A-BB8B-494F-A4D2-FAD77290CCF4}',
                     'configuration' => [
-                        'Serialnumber' => $Bridge['serialNumber']
+                        'Serialnumber' => $EVSE['serialNumber']
                     ]
                 ],
                 [
                     'moduleID'      => '{6EFF1F3C-DF5F-43F7-DF44-F87EFF149566}',
                     'configuration' => [
-                        'Host' => $Bridge['IPv4']
+                        'Host' => $EVSE['IPv4']
                     ]
                 ]
 
