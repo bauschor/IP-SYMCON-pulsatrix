@@ -68,6 +68,7 @@ class pxDiscovery extends IPSModule
             if (strpos(strtolower($device['Name']), 'pulsatrix') !== false) {
 
                 $px = [];
+                $pxData = [];
                 $deviceInfo = ZC_QueryService($mDNSInstanceIDs[0], $device['Name'], '_http._tcp', 'local.');
 
                 if (!empty($deviceInfo)) {
@@ -75,9 +76,9 @@ class pxDiscovery extends IPSModule
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
-                    $pxData = json_decode($this->readEVSEconfigurationData($px['IPv4']));
+                    $pxData = json_decode($this->readEVSEconfigurationData($px['IPv4']), true);
 
-                    $px['deviceName'] = $pxData->controllerName;
+                    $px['deviceName'] = $pxData['controllerName'];
                     // $px['domainName'] = (string) $pxData['powerDomainName'];
                     // $px['AmperageLimit'] = (string) $pxData['effectiveAmperageLimit'];
                     // $px['hasPhaseRotation'] = (string) $pxData['hasPhaseRotation'];
