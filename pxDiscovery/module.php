@@ -27,8 +27,13 @@ class pxDiscovery extends IPSModule
 
             $AddValue = [
                 'IPAddress'             => $EVSE['IPv4'],
-                'name'                  => $EVSE['deviceName'],
+                'Domain'                => $EVSE['domainName'],
+                'Name'                  => $EVSE['deviceName'],
                 'SerialNumber'          => $EVSE['serialNumber'],
+                'AmperageLimit'         => $EVSE['AmperageLimit'],
+                'PhaseRotation'         => $EVSE['hasPhaseRotation'],
+                'PhaseSTShutoff'        => $EVSE['hasPhaseSTShutoff'],
+                'PhaseSTTurnon'         => $EVSE['hasPhaseSTTurnon']
             ];
 
             $AddValue['create'] = [
@@ -68,8 +73,16 @@ class pxDiscovery extends IPSModule
                 if (!empty($deviceInfo)) {
                     $px['Hostname'] = $deviceInfo[0]['Host'];
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
-                    $px['deviceName'] = $deviceInfo[0]['Name'];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
+
+                    $pxData = $this->readEVSEconfigurationData($px['IPv4']);
+                    $px['deviceName'] = $pxdata['controllerName'];
+                    $px['domainName'] = $pxdata['powerDomainName'];
+                    $px['AmperageLimit'] = $pxdata['effectiveAmperageLimit'];
+                    $px['hasPhaseRotation'] = $pxdata['hasPhaseRotation'];
+                    $px['hasPhaseSTShutoff'] = $pxdata['hasPhaseSTShutoff'];
+                    $px['hasPhaseSTTurnon'] = $pxdata['hasPhaseSTTurnon'];
+
                     array_push($evses, $px);
                 }
             }
@@ -77,4 +90,24 @@ class pxDiscovery extends IPSModule
         return $evses;
     }
 
+    private function readEVSEconfigurationData($ip)
+    {
+        $curl=curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://'.$ip.'/api/v1/configuration');
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                       // Die Antwort bitte nicht an STDOUT
+    
+        $response = curl_exec($curl);                                           // Hier das Ergebnis
+    
+        if (curl_errno($curl) > 0) {
+            // $errtext = curl_error($curl);
+            // echo "ERROR ---> ".$errtext.PHP_EOL;
+            $json = "";     
+        }else{
+            $json = json_decode($response, true);                               // Dekodieren der Antwort
+        }
+        curl_close($curl);
+
+        return $json;
+    }
 }

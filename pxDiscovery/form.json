@@ -4,7 +4,7 @@
     {
       "type": "Configurator",
       "name": "Configurator",
-      "caption": "px Device Disocvery",
+      "caption": "pulsatrix Device Discovery",
       "delete": false,
       "sort": {
         "column": "IPAddress",
@@ -17,10 +17,35 @@
           "width": "250px"
         },
         {
+          "caption": "Powerdomain",
+          "name": "Domain",
+          "width": "250px"
+        },
+        {
           "caption": "Devicename",
           "name": "name",
           "width": "auto"
         },
+        {
+          "caption": "AmperageLimit",
+          "name": "AmperageLimit",
+          "width": "100px"
+        },        
+        {
+          "caption": "PhaseRotation",
+          "name": "PhaseRotation",
+          "width": "100px"
+        },
+        {
+          "caption": "PhaseSTShutoff",
+          "name": "PhaseSTShutoff",
+          "width": "100px"
+        },
+        {
+          "caption": "PhaseSTTurnon",
+          "name": "PhaseSTTurnon",
+          "width": "100px"
+        },        
         {
           "caption": "Serial Number",
           "name": "SerialNumber",
