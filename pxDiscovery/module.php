@@ -82,6 +82,14 @@ class pxDiscovery extends IPSModule
                     // $px['hasPhaseRotation'] = (string) $pxData['hasPhaseRotation'];
                     // $px['hasPhaseSTShutoff'] = (string) $pxData['hasPhaseSTShutoff'];
                     // $px['hasPhaseSTTurnon'] = (string) $pxData['hasPhaseSTTurnon'];
+
+                    $px['deviceName'] ="";
+                    $px['domainName'] = "";
+                    $px['AmperageLimit'] = "";
+                    $px['hasPhaseRotation'] = "";
+                    $px['hasPhaseSTShutoff'] = "";
+                    $px['hasPhaseSTTurnon'] = "";
+
                     array_push($evses, $px);
                 }
             }
