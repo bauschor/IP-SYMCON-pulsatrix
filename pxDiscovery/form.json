@@ -1,0 +1,33 @@
+{
+  "actions":
+  [
+    {
+      "type": "Configurator",
+      "name": "Configurator",
+      "caption": "px Device Disocvery",
+      "delete": false,
+      "sort": {
+        "column": "IPAddress",
+        "direction": "ascending"
+      },
+      "columns": [
+        {
+          "caption": "IP Address",
+          "name": "IPAddress",
+          "width": "250px"
+        },
+        {
+          "caption": "Devicename",
+          "name": "name",
+          "width": "auto"
+        },
+        {
+          "caption": "Serial Number",
+          "name": "SerialNumber",
+          "width": "250px"
+        }
+      ],
+      "values": []
+    }
+  ]
+}

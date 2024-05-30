@@ -1,0 +1,11 @@
+{
+  "id": "{AE291EA9-58E1-46CD-3E4D-09B2BEE2658B}",
+  "name": "pxDiscovery",
+  "type": 5,
+  "vendor": "pulsatrix",
+  "aliases": ["pulsatrix EVSE Discovery"],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "PX"
+}
