@@ -76,12 +76,12 @@ class pxDiscovery extends IPSModule
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
                     $pxData = $this->readEVSEconfigurationData($px['IPv4']);
-                    $px['deviceName'] = $pxdata['controllerName'];
-                    $px['domainName'] = $pxdata['powerDomainName'];
-                    $px['AmperageLimit'] = $pxdata['effectiveAmperageLimit'];
-                    $px['hasPhaseRotation'] = $pxdata['hasPhaseRotation'];
-                    $px['hasPhaseSTShutoff'] = $pxdata['hasPhaseSTShutoff'];
-                    $px['hasPhaseSTTurnon'] = $pxdata['hasPhaseSTTurnon'];
+                    $px['deviceName'] = $pxData['controllerName'];
+                    $px['domainName'] = $pxData['powerDomainName'];
+                    $px['AmperageLimit'] = $pxData['effectiveAmperageLimit'];
+                    $px['hasPhaseRotation'] = $pxData['hasPhaseRotation'];
+                    $px['hasPhaseSTShutoff'] = $pxData['hasPhaseSTShutoff'];
+                    $px['hasPhaseSTTurnon'] = $pxData['hasPhaseSTTurnon'];
 
                     array_push($evses, $px);
                 }
