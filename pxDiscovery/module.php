@@ -75,9 +75,9 @@ class pxDiscovery extends IPSModule
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
-                    $pxData = $this->readEVSEconfigurationData($px['IPv4']);
+                    $pxData = jscon_decode($this->readEVSEconfigurationData($px['IPv4']));
 
-                    $px['deviceName'] = (string) $pxData['controllerName'];
+                    $px['deviceName'] = $pxData['controllerName'];
                     // $px['domainName'] = (string) $pxData['powerDomainName'];
                     // $px['AmperageLimit'] = (string) $pxData['effectiveAmperageLimit'];
                     // $px['hasPhaseRotation'] = (string) $pxData['hasPhaseRotation'];
@@ -100,7 +100,7 @@ class pxDiscovery extends IPSModule
 
     private function readEVSEconfigurationData($ip)
     {
-        $curl=curl_init();
+        $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://'.$ip.'/api/v1/configuration');
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                       // Die Antwort bitte nicht an STDOUT
@@ -116,6 +116,7 @@ class pxDiscovery extends IPSModule
         }
         curl_close($curl);
 
-        return $json;
+        // return $json;
+        return $response;
     }
 }
