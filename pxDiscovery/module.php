@@ -76,7 +76,7 @@ class pxDiscovery extends IPSModule
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
-                    $pxData = $this->readEVSEconfigurationData($deviceInfo[0]['IPv4'][0]);
+                    $pxData = json_decode($this->readEVSEconfigurationData($deviceInfo[0]['IPv4'][0]), true);
 
                     $px['deviceName'] = $pxData['controllerName'];
                     // $px['domainName'] = (string) $pxData['powerDomainName'];
@@ -117,6 +117,7 @@ class pxDiscovery extends IPSModule
         }
         curl_close($curl);
 
-        return $json;
+        // return $json;
+        return $response;
     }
 }
