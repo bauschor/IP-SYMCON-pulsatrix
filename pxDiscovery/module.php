@@ -27,12 +27,12 @@ class pxDiscovery extends IPSModule
 
             $AddValue = [
                 'IPAddress'             => $EVSE['IPv4'],
-                // 'Domain'                => $EVSE['domainName'],
+                'Domain'                => $EVSE['domainName'],
                 'name'                  => $EVSE['deviceName'],
-                // 'AmperageLimit'         => $EVSE['AmperageLimit'],
-                // 'PhaseRotation'         => $EVSE['PhaseRotation'],
-                // 'PhaseSTShutoff'        => $EVSE['PhaseSTShutoff'],
-                // 'PhaseSTTurnon'         => $EVSE['PhaseSTTurnon'],
+                'AmperageLimit'         => $EVSE['AmperageLimit'],
+                'PhaseRotation'         => $EVSE['PhaseRotation'],
+                'PhaseSTShutoff'        => $EVSE['PhaseSTShutoff'],
+                'PhaseSTTurnon'         => $EVSE['PhaseSTTurnon'],
                 'SerialNumber'          => $EVSE['serialNumber']
             ];
 
@@ -80,13 +80,18 @@ class pxDiscovery extends IPSModule
                         $pxData = json_decode($this->readEVSEconfigurationData($deviceInfo[0]['IPv4'][0]), true);
 
                         $px['deviceName'] = $pxData['controllerName'];
-                        // $px['domainName'] = $pxData['powerDomainName'];
-                        // $px['AmperageLimit'] = $pxData['effectiveAmperageLimit'];
-                        // $px['PhaseRotation'] = $pxData['hasPhaseRotation'];
-                        // $px['PhaseSTShutoff'] = $pxData['hasPhaseSTShutoff'];
-                        // $px['PhaseSTTurnon'] = $pxData['hasPhaseSTTurnon'];
+                        $px['domainName'] = $pxData['powerDomainName'];
+                        $px['AmperageLimit'] = $pxData['effectiveAmperageLimit'];
+                        $px['PhaseRotation'] = $pxData['hasPhaseRotation'];
+                        $px['PhaseSTShutoff'] = $pxData['hasPhaseSTShutoff'];
+                        $px['PhaseSTTurnon'] = $pxData['hasPhaseSTTurnon'];
                     }else{
                         $px['deviceName'] = "UIC";                        
+                        $px['domainName'] = "";
+                        $px['AmperageLimit'] = "";
+                        $px['PhaseRotation'] = "";
+                        $px['PhaseSTShutoff'] = "";
+                        $px['PhaseSTTurnon'] = "";
                     }
 
                     array_push($evses, $px);
