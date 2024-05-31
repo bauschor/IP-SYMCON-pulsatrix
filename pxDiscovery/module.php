@@ -27,12 +27,12 @@ class pxDiscovery extends IPSModule
 
             $AddValue = [
                 'IPAddress'             => $EVSE['IPv4'],
-                // 'Domain'                => $EVSE['domainName'],
+                'Domain'                => $EVSE['domainName'],
                 'name'                  => $EVSE['deviceName'],
                 // 'AmperageLimit'         => $EVSE['AmperageLimit'],
-                // 'PhaseRotation'         => $EVSE['hasPhaseRotation'],
-                // 'PhaseSTShutoff'        => $EVSE['hasPhaseSTShutoff'],
-                // 'PhaseSTTurnon'         => $EVSE['hasPhaseSTTurnon'],
+                // 'PhaseRotation'         => $EVSE['PhaseRotation'],
+                // 'PhaseSTShutoff'        => $EVSE['PhaseSTShutoff'],
+                // 'PhaseSTTurnon'         => $EVSE['PhaseSTTurnon'],
                 'SerialNumber'          => $EVSE['serialNumber']
             ];
 
@@ -79,18 +79,11 @@ class pxDiscovery extends IPSModule
                     $pxData = json_decode($this->readEVSEconfigurationData($deviceInfo[0]['IPv4'][0]), true);
 
                     $px['deviceName'] = $pxData['controllerName'];
-                    // $px['domainName'] = (string) $pxData['powerDomainName'];
-                    // $px['AmperageLimit'] = (string) $pxData['effectiveAmperageLimit'];
-                    // $px['hasPhaseRotation'] = (string) $pxData['hasPhaseRotation'];
-                    // $px['hasPhaseSTShutoff'] = (string) $pxData['hasPhaseSTShutoff'];
-                    // $px['hasPhaseSTTurnon'] = (string) $pxData['hasPhaseSTTurnon'];
-
-                    // $px['deviceName'] ="a";
-                    // $px['domainName'] = "b";
-                    // $px['AmperageLimit'] = "c";
-                    // $px['hasPhaseRotation'] = "d";
-                    // $px['hasPhaseSTShutoff'] = "e";
-                    // $px['hasPhaseSTTurnon'] = "f";
+                    $px['domainName'] = $pxData['powerDomainName'];
+                    $px['AmperageLimit'] = $pxData['effectiveAmperageLimit'];
+                    $px['PhaseRotation'] = $pxData['hasPhaseRotation'];
+                    $px['PhaseSTShutoff'] = $pxData['hasPhaseSTShutoff'];
+                    $px['PhaseSTTurnon'] = $pxData['hasPhaseSTTurnon'];
 
                     array_push($evses, $px);
                 }
