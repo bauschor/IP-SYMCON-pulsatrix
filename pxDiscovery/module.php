@@ -68,7 +68,6 @@ class pxDiscovery extends IPSModule
             if (strpos(strtolower($device['Name']), 'pulsatrix') !== false) {
 
                 $px = [];
-                $pxData = [];
                 $deviceInfo = ZC_QueryService($mDNSInstanceIDs[0], $device['Name'], '_http._tcp', 'local.');
 
                 if (!empty($deviceInfo)) {
@@ -117,7 +116,6 @@ class pxDiscovery extends IPSModule
         }
         curl_close($curl);
 
-        // return $json;
-        return $response;
+        return $json;
     }
 }

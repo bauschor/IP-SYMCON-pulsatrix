@@ -17,36 +17,6 @@
           "width": "250px"
         },
         {
-          "caption": "Powerdomain",
-          "name": "Domain",
-          "width": "250px"
-        },
-        {
-          "caption": "Devicename",
-          "name": "name",
-          "width": "auto"
-        },
-        {
-          "caption": "AmperageLimit",
-          "name": "AmperageLimit",
-          "width": "100px"
-        },        
-        {
-          "caption": "PhaseRotation",
-          "name": "PhaseRotation",
-          "width": "100px"
-        },
-        {
-          "caption": "PhaseSTShutoff",
-          "name": "PhaseSTShutoff",
-          "width": "150px"
-        },
-        {
-          "caption": "PhaseSTTurnon",
-          "name": "PhaseSTTurnon",
-          "width": "150px"
-        },        
-        {
           "caption": "Serial Number",
           "name": "SerialNumber",
           "width": "250px"
