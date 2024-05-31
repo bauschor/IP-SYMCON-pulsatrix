@@ -76,21 +76,21 @@ class pxDiscovery extends IPSModule
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
-                    $pxData = json_decode($this->readEVSEconfigurationData($px['IPv4']), true);
+                    // $pxData = json_decode($this->readEVSEconfigurationData($px['IPv4']), true);
 
-                    $px['deviceName'] = $pxData['controllerName'];
+                    // $px['deviceName'] = $pxData['controllerName'];
                     // $px['domainName'] = (string) $pxData['powerDomainName'];
                     // $px['AmperageLimit'] = (string) $pxData['effectiveAmperageLimit'];
                     // $px['hasPhaseRotation'] = (string) $pxData['hasPhaseRotation'];
                     // $px['hasPhaseSTShutoff'] = (string) $pxData['hasPhaseSTShutoff'];
                     // $px['hasPhaseSTTurnon'] = (string) $pxData['hasPhaseSTTurnon'];
 
-                    // $px['deviceName'] ="";
-                    $px['domainName'] = "";
-                    $px['AmperageLimit'] = "";
-                    $px['hasPhaseRotation'] = "";
-                    $px['hasPhaseSTShutoff'] = "";
-                    $px['hasPhaseSTTurnon'] = "";
+                    $px['deviceName'] ="a";
+                    $px['domainName'] = "b";
+                    $px['AmperageLimit'] = "c";
+                    $px['hasPhaseRotation'] = "d";
+                    $px['hasPhaseSTShutoff'] = "e";
+                    $px['hasPhaseSTTurnon'] = "f";
 
                     array_push($evses, $px);
                 }
