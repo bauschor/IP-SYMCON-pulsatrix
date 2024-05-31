@@ -76,7 +76,7 @@ class pxDiscovery extends IPSModule
                     $px['IPv4'] = $deviceInfo[0]['IPv4'][0];
                     $px['serialNumber'] = $deviceInfo[0]['TXTRecords'][0];
 
-                    if (strpos(strtolower($device['Name']), 'EVCC') !== false) {                    
+                    if (strpos(strtolower($device['Name']), 'evcc') !== false) {                    
                         $pxData = json_decode($this->readEVSEconfigurationData($deviceInfo[0]['IPv4'][0]), true);
 
                         $px['deviceName'] = $pxData['controllerName'];
