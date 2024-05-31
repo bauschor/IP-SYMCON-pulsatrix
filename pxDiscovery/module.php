@@ -28,7 +28,7 @@ class pxDiscovery extends IPSModule
             $AddValue = [
                 'IPAddress'             => $EVSE['IPv4'],
                 // 'Domain'                => $EVSE['domainName'],
-                // 'Name'                  => $EVSE['deviceName'],
+                'name'                  => $EVSE['deviceName'],
                 // 'AmperageLimit'         => $EVSE['AmperageLimit'],
                 // 'PhaseRotation'         => $EVSE['hasPhaseRotation'],
                 // 'PhaseSTShutoff'        => $EVSE['hasPhaseSTShutoff'],
