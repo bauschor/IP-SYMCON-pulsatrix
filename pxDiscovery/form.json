@@ -22,11 +22,6 @@
           "width": "auto"
         },
         {
-          "caption": "Powerdomain",
-          "name": "Domain",
-          "width": "250px"
-        },
-        {
           "caption": "Serial Number",
           "name": "SerialNumber",
           "width": "250px"
